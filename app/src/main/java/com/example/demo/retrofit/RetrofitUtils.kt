@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import com.example.demo.BuildConfig
+import com.example.demo.utilities.Constants.Companion.BASE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -47,7 +48,7 @@ object RetrofitUtils {
     }
 
     private val builder = Retrofit.Builder()
-        .baseUrl("https://picsum.photos/")
+        .baseUrl(BASE_URL)
 
     fun callRetrofit(appContext: Context): RetrofitInterface {
         val gson = GsonBuilder()

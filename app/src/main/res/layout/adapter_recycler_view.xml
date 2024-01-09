@@ -5,7 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:layout_marginVertical="@dimen/_2sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_1sdp"
+    app:strokeColor="?attr/backgroundColor"
+    app:strokeWidth="@dimen/_2sdp"
+    tools:context=".ui.main.adapter.RecyclerViewAdapter">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,37 +21,62 @@
         android:gravity="center"
         android:background="?attr/backgroundColor">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_image"
-            android:layout_width="@dimen/_100sdp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewImage"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_launcher_background"
-            android:adjustViewBounds="true"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/backgroundColor"
+            app:strokeWidth="@dimen/_1sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_image"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_launcher_background"
+                android:adjustViewBounds="true"/>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="visible" />
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:letterSpacing="0.02"
+            app:fontFamily="sans-serif-medium"
             android:text="@string/app_name"
             android:textSize="@dimen/_10ssp"
             android:textColor="?attr/textColor"
+            android:lines="1"
+            android:ellipsize="end"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/tvDescription"
-            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toEndOf="@id/cardViewImage"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:letterSpacing="0.02"
             android:text="@string/app_name"
             android:textSize="@dimen/_10ssp"
             android:textColor="?attr/textColor"
+            android:maxLines="1"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toEndOf="@id/cardViewImage"
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
